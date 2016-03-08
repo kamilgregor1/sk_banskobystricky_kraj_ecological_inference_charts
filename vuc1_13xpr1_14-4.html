@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['Subjekt','Ostatní','Kaník','Kotleba','Maňka','Nevoliči'],
+['Fico',0.008,0.0105,0.0267,0.164,0.0935],
+['Kiska',0.0063,0.0182,0.0389,0.0236,0.1258],
+['Procházka',0.0089,0.0158,0.0261,0.0368,0.1085],
+['Kňažko',0.0025,0.0065,0.0036,0.0061,0.1117],
+['Bárdos',0.0206,0.0077,0.0094,0.0263,0.0331],
+['Ostatní',0.0088,0.0086,0.0008,0.0226,0.0202]
+      ]);
+
+      var options = {
+        title: 'The 2013 regional elections (1st round) versus the 2014 presidential elections (1st round)',
+        legend: { position: 'right'},
+        isStacked: true,
+        chartArea: {'width':'65%','height': '65%'},
+		series:[{color:'grey'},{color:'purple'},{color:'brown'},{color:'blue'},{color:'silver'}],
+        hAxis: {slantedText:true, slantedTextAngle:90,title:'The 2014 presidential elections (1st round)'},
+						vAxis: {viewWindow:{
+                max:1,
+                min:0
+              }},
+      };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 500px;"></div>
+  </body>
+</html>

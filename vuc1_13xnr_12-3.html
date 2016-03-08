@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['Subjekt','Ostatní','Kaník','Kotleba','Maňka','Nevoliči'],
+['Nevoliči',0.0051,0.0073,0.0035,0.0024,0.9817],
+['Smer',0.0184,0.0246,0.0703,0.3283,0.5584],
+['OĽ',0.0292,0.0633,0.081,0.0444,0.782],
+['Most-Híd',0.1055,0.1347,0.0247,0.1318,0.6033],
+['KDH',0.1471,0.0979,0.0897,0.1155,0.5498],
+['SDKÚ',0.0927,0.1791,0.0908,0.2268,0.4107],
+['SMK',0.1027,0.0853,0.0146,0.2875,0.5099],
+['SaS',0.0112,0.0313,0.036,0.0129,0.9087],
+['SNS',0.093,0.0852,0.1026,0.173,0.5461],
+['Ostatní',0.1284,0.062,0.2064,0.0428,0.5605]
+      ]);
+
+      var options = {
+        title: 'Voľby do VÚC 2013 (1. kolo) versus voľby do NR SR 2013',
+        legend: { position: 'right'},
+        isStacked: true,
+        chartArea: {'width':'65%','height': '65%'},
+		series:[{color:'grey'},{color:'purple'},{color:'brown'},{color:'blue'},{color:'silver'}],
+        hAxis: {slantedText:true, slantedTextAngle:90,title:'Voľby do NR SR 2013'},
+						vAxis: {viewWindow:{
+                max:1,
+                min:0
+              }},
+      };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 500px;"></div>
+  </body>
+</html>

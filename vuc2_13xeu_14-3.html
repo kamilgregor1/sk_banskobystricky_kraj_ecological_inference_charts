@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['Subjekt','Maňka','Kotleba','Nevoliči'],
+['Nevoliči',0.0511,0.0964,0.8524],
+['Smer',0.8973,0.0917,0.011],
+['OĽ',0.2873,0.224,0.4887],
+['SMK',0.2576,0.0238,0.7186],
+['KDH',0.1136,0.6036,0.2828],
+['SDKÚ',0.1282,0.443,0.4288],
+['Most-Híd',0.1905,0.0373,0.7722],
+['SaS',0.2614,0.5934,0.1452],
+['NOVA',0.6336,0.248,0.1184],
+['Ostatní',0.3318,0.5913,0.0769]
+      ]);
+
+      var options = {
+        title: 'Voľby do VÚC 2013 (2. kolo) versus európské voľby 2014',
+        legend: { position: 'right'},
+        isStacked: true,
+        chartArea: {'width':'65%','height': '65%'},
+		series:[{color:'blue'},{color:'brown'},{color:'silver'}],
+        hAxis: {slantedText:true, slantedTextAngle:90,title:'Európské voľby 2014'},
+						vAxis: {viewWindow:{
+                max:1,
+                min:0
+              }},
+      };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 500px;"></div>
+  </body>
+</html>

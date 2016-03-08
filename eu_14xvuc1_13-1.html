@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['Subjekt','Ostatní','Kaník','Kotleba','Maňka','Nevoliči'],
+['Nevoliči',0.0162717768643592,0.010195639941188,0.0413924561298769,0.056065872793722,0.876074254299777],
+['Smer',0.0324335219518419,0.0107951565178468,0.0448989799105808,0.852142183269811,0.0597301585545447],
+['OĽ',0.276754996167454,0.433713891577815,0.0323917687542359,0.0946266982383865,0.16251264519167],
+['SMK',0.186242727947737,0.203479862843883,0.0607794596050627,0.232261000454517,0.317236949133735],
+['KDH',0.196415796271407,0.1954221479573,0.0581328650844182,0.236968129468779,0.313061061275591],
+['SDKÚ',0.104442723306722,0.456697304240136,0.0454896749420536,0.141008644509482,0.252361653001607],
+['Most-Híd',0.19460103016745,0.658785005092461,0.0161305413042205,0.05027684680917,0.0802065766585251],
+['SaS',0.173258574494884,0.238542346839735,0.0566817315427544,0.211816730362176,0.319700616874269],
+['NOVA',0.231761494168276,0.250385487415256,0.0515909009688855,0.184139543450724,0.28212257402521],
+['Ostatní',0.0928389763042647,0.0287611619140445,0.179567654214125,0.425922787716627,0.272909419617691]
+      ]);
+
+      var options = {
+        title: 'Európské voľby 2014 versus voľby do VÚC 2013 (1. kolo)',
+        legend: { position: 'right'},
+        isStacked: true,
+        chartArea: {'width':'65%','height': '65%'},
+series:[{color:'grey'},{color:'purple'},{color:'brown'},{color:'blue'},{color:'silver'}],
+        hAxis: {slantedText:true, slantedTextAngle:90,title:'Európské voľby 2014'},
+		vAxis: {viewWindow:{
+                max:1,
+                min:0
+              }},
+      };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 500px;"></div>
+  </body>
+</html>

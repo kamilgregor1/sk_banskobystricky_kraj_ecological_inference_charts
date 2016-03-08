@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['Subjekt','Ostatní','Bárdos','Kňažko','Procházka','Kiska','Fico','Nevoliči'],
+['Maňka',0.0444,0.0381,0.0103,0.0622,0.0398,0.2767,0.0229],
+['Kotleba',0.0161,0.0014,0.0062,0.0448,0.0669,0.0459,0.0318],
+['Kaník',0.0127,0.0143,0.0108,0.0261,0.0302,0.0174,0.0396],
+['Ostatní',0.0331,0.0142,0.0039,0.0143,0.0101,0.0128,0.0533]
+      ]);
+
+      var options = {
+        title: 'Voľby do VÚC 2013 (1. kolo) versus prezidentské voľby 2014 (1. kolo)',
+        legend: { position: 'right'},
+        isStacked: true,
+        chartArea: {'width':'65%','height': '65%'},
+		color:['grey','green','gold','purple','blue','red','silver'],
+        hAxis: {slantedText:true, slantedTextAngle:90,title:'Voľby do VÚC 2013 (1. kolo)'},
+      };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 500px;"></div>
+  </body>
+</html>
